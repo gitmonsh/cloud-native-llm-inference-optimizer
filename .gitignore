@@ -1,0 +1,32 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Environment variables
+.env
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+.terraform.lock.hcl
+
+# Logs
+*.log
+
+# Secrets / keys
+*.pem
+*.key
+*.kubeconfig
+
+# Benchmark outputs
+results/**/*.csv
+results/**/*.json
+results/**/*.log
+results/**/*.png
