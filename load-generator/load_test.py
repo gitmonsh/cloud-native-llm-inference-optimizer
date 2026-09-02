@@ -46,29 +46,54 @@ def send_request(url: str, max_tokens: int) -> dict:
     }
 
 
+def get_delay(pattern: str, request_index: int, base_delay: float) -> float:
+    if pattern == "steady":
+        return base_delay
+
+    if pattern == "burst":
+        # Every 10 requests, send a fast burst. Then pause longer.
+        if request_index % 10 < 7:
+            return 0.05
+        return 1.0
+
+    if pattern == "cooldown":
+        # Start fast, then gradually slow down.
+        return base_delay + (request_index * 0.05)
+
+    raise ValueError(f"Unsupported traffic pattern: {pattern}")
+
+
 def run_load_test(
     url: str,
     requests_count: int,
     delay_seconds: float,
     max_tokens: int,
     output_file: str,
+    pattern: str,
 ):
     results = []
+
+    print(f"traffic_pattern={pattern}")
+    print(f"requests={requests_count}")
+    print(f"output_file={output_file}")
 
     for index in range(requests_count):
         try:
             result = send_request(url, max_tokens)
             results.append(result)
+
             print(
                 f"request={index + 1}/{requests_count} "
                 f"latency={result['latency_seconds']:.3f}s "
                 f"ttft={result['time_to_first_token_seconds']:.3f}s "
-                f"tokens={result['output_tokens']}"
+                f"tokens={result['output_tokens']} "
+                f"gpu={result['simulated_gpu_utilization']:.1f}%"
             )
         except Exception as error:
             print(f"request={index + 1}/{requests_count} failed error={error}")
 
-        time.sleep(delay_seconds)
+        delay = get_delay(pattern, index, delay_seconds)
+        time.sleep(delay)
 
     if results:
         fieldnames = list(results[0].keys())
@@ -83,33 +108,45 @@ def run_load_test(
 
 def main():
     parser = argparse.ArgumentParser(description="LLM inference load generator")
+
     parser.add_argument(
         "--url",
         default="http://127.0.0.1:8000/generate",
         help="Inference endpoint URL",
     )
+
     parser.add_argument(
         "--requests",
         type=int,
         default=20,
         help="Number of requests to send",
     )
+
     parser.add_argument(
         "--delay",
         type=float,
         default=0.2,
-        help="Delay between requests in seconds",
+        help="Base delay between requests in seconds",
     )
+
     parser.add_argument(
         "--max-tokens",
         type=int,
         default=80,
         help="Maximum output tokens per request",
     )
+
     parser.add_argument(
         "--output",
         default="results/baseline/local_test.csv",
         help="CSV output path",
+    )
+
+    parser.add_argument(
+        "--pattern",
+        choices=["steady", "burst", "cooldown"],
+        default="steady",
+        help="Traffic pattern to generate",
     )
 
     args = parser.parse_args()
@@ -120,6 +157,7 @@ def main():
         delay_seconds=args.delay,
         max_tokens=args.max_tokens,
         output_file=args.output,
+        pattern=args.pattern,
     )
 
 

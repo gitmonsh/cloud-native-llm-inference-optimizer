@@ -61,9 +61,20 @@ Both runs must use the same model, prompt dataset, traffic pattern, AWS region, 
 - Built local LLM inference simulator using FastAPI.
 - Exposed Prometheus-style metrics at `/metrics`.
 - Built load generator for sending test inference requests.
-- Ran first local baseline test with 20 requests.
-- Generated local benchmark CSV at `results/baseline/local_test.csv`.
+- Added traffic pattern support for steady, burst, and cooldown tests.
+- Ran local benchmark tests for steady, burst, and cooldown traffic.
+- Generated local benchmark CSV files under `results/baseline/`.
 - Added cost calculator for request, token, latency, and estimated compute cost analysis.
+
+## Local Baseline Tests
+
+These first tests validate the local development pipeline. They do not represent real GPU performance.
+
+| Pattern | Requests | Tokens | Avg Latency | p95 Latency | p99 Latency | p95 TTFT | Cost / Request | Cost / 1K Tokens |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Steady | 10 | 517 | 0.578s | 0.838s | 0.838s | 0.498s | $0.00166667 | $0.03223727 |
+| Burst | 20 | 1,093 | 0.634s | 0.856s | 0.880s | 0.523s | $0.00083333 | $0.01524855 |
+| Cooldown | 15 | 827 | 0.578s | 0.952s | 0.952s | 0.528s | $0.00111111 | $0.02015316 |
 
 ## Local Baseline Test
 

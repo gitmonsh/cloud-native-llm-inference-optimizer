@@ -9,24 +9,25 @@ This folder stores benchmark outputs for the project.
 | baseline | Results from the naive baseline deployment |
 | optimized | Results from the optimized autoscaling deployment |
 
-## Current Local Test
+## Current Local Tests
 
-The first local test validates the simulator, load generator, and cost calculator.
+The first local tests validate the simulator, load generator, traffic patterns, and cost calculator.
 
-This does not represent real GPU performance. It is only used to test the local benchmark pipeline before running AWS GPU tests.
+These results do not represent real GPU performance. They are used to test the local benchmark pipeline before running AWS GPU tests.
 
-| Metric | Value |
-|---|---:|
-| Successful requests | 20 |
-| Total tokens | 1,114 |
-| Average latency | 0.585s |
-| p95 latency | 0.791s |
-| p99 latency | 0.844s |
-| Average TTFT | 0.293s |
-| p95 TTFT | 0.496s |
-| Estimated compute cost | $0.016667 |
-| Cost per request | $0.00083333 |
-| Cost per 1,000 tokens | $0.01496110 |
+## Local Benchmark Summary
+
+| Pattern | Requests | Tokens | Avg Latency | p95 Latency | p99 Latency | p95 TTFT | Cost / Request | Cost / 1K Tokens |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Steady | 10 | 517 | 0.578s | 0.838s | 0.838s | 0.498s | $0.00166667 | $0.03223727 |
+| Burst | 20 | 1,093 | 0.634s | 0.856s | 0.880s | 0.523s | $0.00083333 | $0.01524855 |
+| Cooldown | 15 | 827 | 0.578s | 0.952s | 0.952s | 0.528s | $0.00111111 | $0.02015316 |
+
+## Initial Observation
+
+The burst test processed the most tokens during the same estimated 1-minute compute window, which produced the lowest cost per request and cost per 1,000 tokens.
+
+This is only a local simulation, but it helps validate the benchmark workflow that will later be used for AWS GPU testing.
 
 ## Important Note
 
