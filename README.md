@@ -65,6 +65,7 @@ Both runs must use the same model, prompt dataset, traffic pattern, AWS region, 
 - Ran local benchmark tests for steady, burst, and cooldown traffic.
 - Generated local benchmark CSV files under `results/baseline/`.
 - Added cost calculator for request, token, latency, and estimated compute cost analysis.
+- Dockerized the local inference simulator and ran the full local stack with Docker Compose.
 
 ## Local Baseline Tests
 

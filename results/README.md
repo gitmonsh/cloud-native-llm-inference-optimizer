@@ -48,6 +48,23 @@ The burst test processed the most tokens during the same estimated 1-minute comp
 
 This is only a local simulation, but it helps validate the benchmark workflow that will later be used for AWS GPU testing.
 
+## Docker Compose Test
+
+This test validates that the local inference simulator, Prometheus, and Grafana can run together through Docker Compose.
+
+| Metric | Value |
+|---|---:|
+| Successful requests | 20 |
+| Total tokens | 1,131 |
+| Average latency | 0.615s |
+| p95 latency | 0.895s |
+| p99 latency | 0.904s |
+| Average TTFT | 0.318s |
+| p95 TTFT | 0.505s |
+| Estimated compute cost | $0.016667 |
+| Cost per request | $0.00083333 |
+| Cost per 1,000 tokens | $0.01473622 |
+
 ## Important Note
 
 Local results are simulated and should not be presented as real GPU benchmark numbers.

@@ -1,4 +1,12 @@
 services:
+  local-inference:
+    build:
+      context: .
+      dockerfile: local-inference/Dockerfile
+    container_name: llm-local-inference
+    ports:
+      - "8000:8000"
+
   prometheus:
     image: prom/prometheus:v2.54.1
     container_name: llm-prometheus
@@ -6,6 +14,8 @@ services:
       - "9090:9090"
     volumes:
       - ./k8s/monitoring/prometheus-local.yml:/etc/prometheus/prometheus.yml
+    depends_on:
+      - local-inference
 
   grafana:
     image: grafana/grafana:11.2.0
