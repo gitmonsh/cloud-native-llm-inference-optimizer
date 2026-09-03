@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: local-inference
+  labels:
+    app: local-inference
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: local-inference
+  template:
+    metadata:
+      labels:
+        app: local-inference
+    spec:
+      containers:
+        - name: local-inference
+          image: local-inference:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 20
