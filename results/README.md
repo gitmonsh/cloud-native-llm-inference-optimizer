@@ -23,6 +23,25 @@ These results do not represent real GPU performance. They are used to test the l
 | Burst | 20 | 1,093 | 0.634s | 0.856s | 0.880s | 0.523s | $0.00083333 | $0.01524855 |
 | Cooldown | 15 | 827 | 0.578s | 0.952s | 0.952s | 0.528s | $0.00111111 | $0.02015316 |
 
+## Grafana Burst Test
+
+This test generated 50 burst-pattern requests while Prometheus and Grafana were running.
+
+It was used to confirm that dashboard panels update when inference traffic is sent to the local simulator.
+
+| Metric | Value |
+|---|---:|
+| Successful requests | 50 |
+| Total tokens | 3,025 |
+| Average latency | 0.629s |
+| p95 latency | 0.863s |
+| p99 latency | 0.995s |
+| Average TTFT | 0.307s |
+| p95 TTFT | 0.513s |
+| Estimated compute cost | $0.016667 |
+| Cost per request | $0.00033333 |
+| Cost per 1,000 tokens | $0.00550964 |
+
 ## Initial Observation
 
 The burst test processed the most tokens during the same estimated 1-minute compute window, which produced the lowest cost per request and cost per 1,000 tokens.

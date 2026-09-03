@@ -1,0 +1,16 @@
+services:
+  prometheus:
+    image: prom/prometheus:v2.54.1
+    container_name: llm-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./k8s/monitoring/prometheus-local.yml:/etc/prometheus/prometheus.yml
+
+  grafana:
+    image: grafana/grafana:11.2.0
+    container_name: llm-grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
