@@ -70,6 +70,8 @@ Both runs must use the same model, prompt dataset, traffic pattern, AWS region, 
 - Deployed the local inference simulator to Docker Desktop Kubernetes.
 - Validated the Kubernetes Service using port forwarding.
 - Ran a local Kubernetes benchmark test through the load generator.
+- Added a dedicated `llm-inference` Kubernetes namespace for cleaner local testing.
+- Validated the namespaced Kubernetes service with a burst benchmark.
 
 ## Local Baseline Tests
 

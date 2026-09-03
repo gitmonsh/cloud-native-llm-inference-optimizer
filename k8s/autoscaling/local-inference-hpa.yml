@@ -2,6 +2,7 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: local-inference-hpa
+  namespace: llm-inference
 spec:
   scaleTargetRef:
     apiVersion: apps/v1

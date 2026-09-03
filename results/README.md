@@ -103,6 +103,29 @@ The service was tested through `kubectl port-forward`.
 | Cost per request | $0.00083333 |
 | Cost per 1,000 tokens | $0.01298027 |
 
+## Namespaced Kubernetes Test
+
+This test validates that the local inference simulator can run inside a dedicated Kubernetes namespace.
+
+Namespace:
+
+`llm-inference`
+
+The service was tested through `kubectl port-forward`.
+
+| Metric | Value |
+|---|---:|
+| Successful requests | 20 |
+| Total tokens | 1,090 |
+| Average latency | 0.609s |
+| p95 latency | 0.852s |
+| p99 latency | 0.916s |
+| Average TTFT | 0.323s |
+| p95 TTFT | 0.518s |
+| Estimated compute cost | $0.016667 |
+| Cost per request | $0.00083333 |
+| Cost per 1,000 tokens | $0.01529052 |
+
 ## Important Note
 
 Local results are simulated and should not be presented as real GPU benchmark numbers.
