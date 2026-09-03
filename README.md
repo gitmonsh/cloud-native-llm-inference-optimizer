@@ -72,6 +72,7 @@ Both runs must use the same model, prompt dataset, traffic pattern, AWS region, 
 - Ran a local Kubernetes benchmark test through the load generator.
 - Added a dedicated `llm-inference` Kubernetes namespace for cleaner local testing.
 - Validated the namespaced Kubernetes service with a burst benchmark.
+- Added a local Kubernetes runbook for deploying and testing the simulator.
 
 ## Local Baseline Tests
 
