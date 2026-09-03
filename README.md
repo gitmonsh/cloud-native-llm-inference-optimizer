@@ -66,6 +66,7 @@ Both runs must use the same model, prompt dataset, traffic pattern, AWS region, 
 - Generated local benchmark CSV files under `results/baseline/`.
 - Added cost calculator for request, token, latency, and estimated compute cost analysis.
 - Dockerized the local inference simulator and ran the full local stack with Docker Compose.
+- Added reusable benchmark runner script for load testing and cost calculation.
 
 ## Local Baseline Tests
 

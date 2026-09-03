@@ -65,6 +65,25 @@ This test validates that the local inference simulator, Prometheus, and Grafana 
 | Cost per request | $0.00083333 |
 | Cost per 1,000 tokens | $0.01473622 |
 
+## Script Benchmark Test
+
+This test validates the reusable benchmark runner script.
+
+The script runs the load generator and then automatically calculates latency and cost metrics.
+
+| Metric | Value |
+|---|---:|
+| Successful requests | 30 |
+| Total tokens | 1,748 |
+| Average latency | 0.601s |
+| p95 latency | 0.818s |
+| p99 latency | 0.866s |
+| Average TTFT | 0.295s |
+| p95 TTFT | 0.500s |
+| Estimated compute cost | $0.016667 |
+| Cost per request | $0.00055556 |
+| Cost per 1,000 tokens | $0.00953471 |
+
 ## Important Note
 
 Local results are simulated and should not be presented as real GPU benchmark numbers.
