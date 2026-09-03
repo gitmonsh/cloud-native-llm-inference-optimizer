@@ -84,6 +84,25 @@ The script runs the load generator and then automatically calculates latency and
 | Cost per request | $0.00055556 |
 | Cost per 1,000 tokens | $0.00953471 |
 
+## Local Kubernetes Test
+
+This test validates that the inference simulator can run inside a local Kubernetes cluster using the Kubernetes Deployment and Service manifests.
+
+The service was tested through `kubectl port-forward`.
+
+| Metric | Value |
+|---|---:|
+| Successful requests | 20 |
+| Total tokens | 1,284 |
+| Average latency | 0.591s |
+| p95 latency | 0.746s |
+| p99 latency | 0.923s |
+| Average TTFT | 0.248s |
+| p95 TTFT | 0.447s |
+| Estimated compute cost | $0.016667 |
+| Cost per request | $0.00083333 |
+| Cost per 1,000 tokens | $0.01298027 |
+
 ## Important Note
 
 Local results are simulated and should not be presented as real GPU benchmark numbers.
