@@ -42,3 +42,13 @@ output "allowed_gpu_instance_types" {
   description = "Allowed GPU instance types for inference workloads."
   value       = module.karpenter.allowed_gpu_instance_types
 }
+
+output "eks_cluster_log_group_name" {
+  description = "CloudWatch log group name for EKS cluster logs."
+  value       = module.observability.eks_cluster_log_group_name
+}
+
+output "log_retention_days" {
+  description = "CloudWatch log retention in days."
+  value       = module.observability.log_retention_days
+}
