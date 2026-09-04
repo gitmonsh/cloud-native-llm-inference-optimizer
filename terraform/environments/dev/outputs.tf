@@ -32,3 +32,13 @@ output "eks_cluster_arn" {
   description = "EKS cluster ARN."
   value       = module.eks.cluster_arn
 }
+
+output "karpenter_node_role_name" {
+  description = "IAM role name for Karpenter-provisioned nodes."
+  value       = module.karpenter.karpenter_node_role_name
+}
+
+output "allowed_gpu_instance_types" {
+  description = "Allowed GPU instance types for inference workloads."
+  value       = module.karpenter.allowed_gpu_instance_types
+}

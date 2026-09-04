@@ -32,3 +32,12 @@ module "eks" {
   cluster_name       = local.cluster_name
   private_subnet_ids = module.networking.private_subnet_ids
 }
+
+module "karpenter" {
+  source = "../../modules/karpenter"
+
+  cluster_name       = module.eks.cluster_name
+  cluster_endpoint   = module.eks.cluster_endpoint
+  cluster_arn        = module.eks.cluster_arn
+  private_subnet_ids = module.networking.private_subnet_ids
+}
