@@ -7,3 +7,18 @@ output "cluster_name" {
   description = "Planned EKS cluster name."
   value       = local.cluster_name
 }
+
+output "vpc_id" {
+  description = "Planned VPC ID."
+  value       = module.networking.vpc_id
+}
+
+output "public_subnet_ids" {
+  description = "Planned public subnet IDs."
+  value       = module.networking.public_subnet_ids
+}
+
+output "private_subnet_ids" {
+  description = "Planned private subnet IDs."
+  value       = module.networking.private_subnet_ids
+}
