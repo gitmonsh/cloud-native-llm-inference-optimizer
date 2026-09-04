@@ -73,6 +73,7 @@ Both runs must use the same model, prompt dataset, traffic pattern, AWS region, 
 - Added a dedicated `llm-inference` Kubernetes namespace for cleaner local testing.
 - Validated the namespaced Kubernetes service with a burst benchmark.
 - Added a local Kubernetes runbook for deploying and testing the simulator.
+- Added AWS cost safety runbook before real cloud deployment.
 
 ## Local Baseline Tests
 
