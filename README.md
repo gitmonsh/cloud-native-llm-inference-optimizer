@@ -55,6 +55,37 @@ The final benchmark compares two setups:
 
 Both runs must use the same model, prompt dataset, traffic pattern, AWS region, test duration, and success criteria.
 
+## Local Demo Screenshots
+
+### Grafana Local Dashboard
+
+![Grafana Local Dashboard](docs/screenshots/grafana-local-dashboard.png)
+
+### Prometheus Target Health
+
+![Prometheus Target Health](docs/screenshots/prometheus-targets-up.png)
+
+### Local Benchmark Output
+
+![Local Benchmark Output](docs/screenshots/local-benchmark-output.png)
+
+## Local Demo Status
+
+The local version validates the project pipeline before AWS deployment.
+
+Current local capabilities:
+
+- Run a FastAPI-based LLM inference simulator.
+- Generate steady, burst, and cooldown traffic patterns.
+- Expose Prometheus metrics from the simulator.
+- Scrape metrics with Prometheus.
+- Visualize inference metrics in Grafana.
+- Run the simulator with Docker Compose.
+- Deploy the simulator to local Kubernetes.
+- Calculate latency and cost-per-token metrics from benchmark CSV files.
+
+These local results are simulated and are not presented as real GPU benchmark results.
+
 ## Current Progress
 
 - Created project documentation foundation.
