@@ -78,6 +78,7 @@ Both runs must use the same model, prompt dataset, traffic pattern, AWS region, 
 - Validated Terraform configuration locally; Terraform plan requires AWS credentials before real infrastructure review.
 - Added Terraform modules for networking, EKS, Karpenter node resources, and observability.
 - Validated Terraform modules locally without creating AWS resources.
+- Added AWS deployment plan for future EKS and GPU benchmark execution.
 
 ## Local Baseline Tests
 
