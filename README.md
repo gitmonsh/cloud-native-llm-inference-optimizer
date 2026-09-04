@@ -75,6 +75,7 @@ Both runs must use the same model, prompt dataset, traffic pattern, AWS region, 
 - Added a local Kubernetes runbook for deploying and testing the simulator.
 - Added AWS cost safety runbook before real cloud deployment.
 - Added Terraform plan runbook for safe AWS review before applying resources.
+- Validated Terraform configuration locally; Terraform plan requires AWS credentials before real infrastructure review.
 
 ## Local Baseline Tests
 

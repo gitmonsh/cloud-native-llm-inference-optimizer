@@ -109,6 +109,24 @@ After testing:
 
 terraform -chdir=terraform/environments/dev destroy
 
+## Current Plan Status
+
+Terraform formatting and validation succeeded.
+
+`terraform plan` was attempted, but AWS credentials were not configured in the local terminal.
+
+Result:
+
+No AWS resources were created.
+
+Error observed:
+
+No valid credential sources found
+
+Next requirement before a real plan:
+
+Configure AWS credentials using AWS CLI, SSO, or environment variables.
+
 ## Important Note
 
 This project should use local development as much as possible.
