@@ -25,3 +25,10 @@ module "networking" {
   environment        = var.environment
   availability_zones = slice(data.aws_availability_zones.available.names, 0, 2)
 }
+
+module "eks" {
+  source = "../../modules/eks"
+
+  cluster_name       = local.cluster_name
+  private_subnet_ids = module.networking.private_subnet_ids
+}
