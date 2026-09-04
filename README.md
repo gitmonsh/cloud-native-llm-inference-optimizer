@@ -79,6 +79,7 @@ Both runs must use the same model, prompt dataset, traffic pattern, AWS region, 
 - Added Terraform modules for networking, EKS, Karpenter node resources, and observability.
 - Validated Terraform modules locally without creating AWS resources.
 - Added AWS deployment plan for future EKS and GPU benchmark execution.
+- Added final benchmark report template for future naive-vs-optimized AWS results.
 
 ## Local Baseline Tests
 
