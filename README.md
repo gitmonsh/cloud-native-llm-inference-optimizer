@@ -76,6 +76,8 @@ Both runs must use the same model, prompt dataset, traffic pattern, AWS region, 
 - Added AWS cost safety runbook before real cloud deployment.
 - Added Terraform plan runbook for safe AWS review before applying resources.
 - Validated Terraform configuration locally; Terraform plan requires AWS credentials before real infrastructure review.
+- Added Terraform modules for networking, EKS, Karpenter node resources, and observability.
+- Validated Terraform modules locally without creating AWS resources.
 
 ## Local Baseline Tests
 

@@ -86,3 +86,43 @@ So the project studies this tradeoff:
 | Lower latency | Keep enough GPU capacity warm |
 | Higher throughput | Use batching efficiently |
 | Lower tail latency | Avoid making requests wait too long |
+
+## Terraform Architecture
+
+The AWS infrastructure is organized into Terraform modules.
+
+| Module | Status | Responsibility |
+|---|---|---|
+| networking | Created | VPC, public subnets, private subnets, internet gateway, public routing |
+| eks | Created | EKS cluster, cluster IAM role, EKS cluster policy attachment |
+| karpenter | Created | Karpenter node IAM role, node instance profile, GPU instance type configuration |
+| observability | Created | CloudWatch log group and log retention settings |
+
+## Current Infrastructure Status
+
+The Terraform configuration has been formatted and validated locally.
+
+No AWS infrastructure has been created yet.
+
+A full `terraform plan` requires AWS credentials because the AWS provider must query account and region information before generating the plan.
+
+## Current Local Runtime Modes
+
+The project currently supports three local runtime modes:
+
+| Mode | Status | Purpose |
+|---|---|---|
+| Direct Python | Working | Run the simulator directly with Uvicorn |
+| Docker Compose | Working | Run simulator, Prometheus, and Grafana together |
+| Local Kubernetes | Working | Test Kubernetes Deployment, Service, namespace, and HPA locally |
+
+## Remaining Production Work
+
+The remaining production work includes:
+
+- replacing the simulator with real vLLM serving
+- configuring real GPU node provisioning on AWS
+- connecting Karpenter to GPU workload scheduling
+- collecting real GPU metrics
+- running the final AWS benchmark
+- comparing naive vs optimized cost and latency
