@@ -127,6 +127,26 @@ Next requirement before a real plan:
 
 Configure AWS credentials using AWS CLI, SSO, or environment variables.
 
+## First Successful Plan Review
+
+Terraform plan succeeded after AWS credentials were configured.
+
+Plan summary:
+
+Plan: 19 to add, 0 to change, 0 to destroy.
+
+Cost review:
+
+- EKS cluster is included and will create hourly cost if applied.
+- No GPU EC2 instances are included yet.
+- No NAT Gateway is included.
+- No Load Balancer is included.
+- CloudWatch log retention is set to 7 days.
+
+Conclusion:
+
+This plan is acceptable for a first base infrastructure test, but `terraform apply` should only be run during an active testing window.
+
 ## Important Note
 
 This project should use local development as much as possible.

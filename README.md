@@ -111,6 +111,7 @@ These local results are simulated and are not presented as real GPU benchmark re
 - Validated Terraform modules locally without creating AWS resources.
 - Added AWS deployment plan for future EKS and GPU benchmark execution.
 - Added final benchmark report template for future naive-vs-optimized AWS results.
+- Ran first successful Terraform plan and confirmed no GPU, NAT Gateway, or Load Balancer resources are created yet.
 
 ## Local Baseline Tests
 
