@@ -112,6 +112,7 @@ These local results are simulated and are not presented as real GPU benchmark re
 - Added AWS deployment plan for future EKS and GPU benchmark execution.
 - Added final benchmark report template for future naive-vs-optimized AWS results.
 - Ran first successful Terraform plan and confirmed no GPU, NAT Gateway, or Load Balancer resources are created yet.
+- Ran a controlled AWS base infrastructure test: created EKS control plane, verified access, confirmed no worker/GPU nodes, and destroyed resources immediately.
 
 ## Local Baseline Tests
 

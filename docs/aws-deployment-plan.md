@@ -134,6 +134,29 @@ terraform -chdir=terraform/environments/dev destroy
 
 Then verify in AWS Console that expensive resources are removed.
 
+## First Base Infrastructure Test
+
+A first AWS base infrastructure test was completed.
+
+Actions performed:
+
+- Ran Terraform apply for the base infrastructure.
+- Created the EKS control plane.
+- Verified the cluster reached ACTIVE status.
+- Updated local kubeconfig for the EKS cluster.
+- Confirmed the cluster had no worker nodes.
+- Destroyed the infrastructure immediately after verification.
+
+Result:
+
+- EKS cluster status: ACTIVE
+- Kubernetes nodes: none
+- GPU nodes created: no
+- Terraform destroy completed successfully
+- Resources destroyed: 14
+
+This verified the base EKS infrastructure path without starting GPU instances.
+
 ## Important Cost Note
 
 Do not leave EKS clusters, GPU EC2 instances, load balancers, NAT gateways, or EBS volumes running after benchmark tests.
