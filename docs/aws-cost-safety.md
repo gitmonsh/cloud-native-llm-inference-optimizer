@@ -76,6 +76,16 @@ Then verify in AWS Console that these are removed:
 - EBS volumes
 - CloudWatch log groups if no longer needed
 
+## GPU Quota Request
+
+A GPU quota increase was requested in `us-west-2` for:
+
+| Quota | Current Value | Requested Value | Status |
+|---|---:|---:|---|
+| Running On-Demand G and VT instances | 0 vCPUs | 8 vCPUs | Pending |
+
+This quota is required before running real GPU-backed `g5.xlarge` inference benchmarks on AWS.
+
 ## Cost Target
 
 The project should aim to keep total AWS spend around:
